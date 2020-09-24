@@ -61,5 +61,28 @@ header button a{
     height: 100%;
     background-color: rgb(172, 172, 172);
     top: 80px;
-    left: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Cards */
+.card-container{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 260px;
+    border: 2px solid rgb(255, 50, 50);
+    border-radius: 15px;
+}
+
+.card-img-container img{
+    height: 180px;
+    width: 180px;
+    border-radius: 15px;
+}
+
+.card-name{
+    padding: 5px;
 }
