@@ -16,6 +16,7 @@ header{
     display: inline-flex;
     justify-content: space-between;
     box-shadow: 0px 0px 15px 0px #00417e;
+    z-index: 99;
 }
 
 header *{
@@ -34,8 +35,12 @@ header input{
     border-radius: 25px;
 }
 
+header input:focus{
+    border: 3px solid red;
+}
+
 header input:hover{
-    border: 2px solid red;
+    
 }
 
 header button{
@@ -61,10 +66,14 @@ header button a{
     height: 100%;
     background-color: rgb(172, 172, 172);
     top: 80px;
+}
+
+#results{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-top: 30px;
 }
 
 /* Cards */
@@ -75,6 +84,7 @@ header button a{
     height: 260px;
     border: 2px solid rgb(255, 50, 50);
     border-radius: 15px;
+    box-shadow: 0px 0px 15px 0px #00417e;
 }
 
 .card-img-container img{
