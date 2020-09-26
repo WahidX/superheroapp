@@ -5,7 +5,6 @@ const url = 'https://superheroapi.com/api.php/'+access_token+'/search/';
 
 // Driver Code
 const searchBar = document.getElementById('search-data');
-
 searchBar.addEventListener('keyup', (e)=> {
     const searchString = e.target.value;
     console.log("Searching for: ",searchString);
@@ -15,7 +14,22 @@ searchBar.addEventListener('keyup', (e)=> {
     else{
         searchHero(searchString);
     }
-})
+});
+
+
+document.addEventListener('click', (event) => {
+    // Details button
+    if(event.target.id == 'details_btn'){
+        var id = event.target.parentNode.parentNode.id;
+        window.open('./details.html'+'?id='+id);
+    }
+    // Favourite button
+    else if(event.target.id == 'details_btn'){
+        var id = event.target.parentNode.parentNode;
+        console.log(id+' will be fav');
+    }
+
+});
 
 
 async function searchHero(searchString){
@@ -59,6 +73,7 @@ function getCard(data){
     // Card container
     var cardContainer = document.createElement('DIV');
     cardContainer.className = 'card-container center';
+    cardContainer.id = data.id;
     
     cardContainer.innerHTML = `
         <div class="card-img-container">
