@@ -39,13 +39,8 @@ header input:focus{
     border: 3px solid red;
 }
 
-header input:hover{
-    
-}
-
 header button{
     margin-right: 20px;
-
 }
 
 header button a{

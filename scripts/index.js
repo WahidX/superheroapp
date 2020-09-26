@@ -60,31 +60,16 @@ function getCard(data){
     var cardContainer = document.createElement('DIV');
     cardContainer.className = 'card-container center';
     
-    // Image div
-    var cardImg = document.createElement('DIV');
-    cardImg.className = 'card-img-container';
-    var img = document.createElement('IMG');
-    img.src = data.image.url;
-    cardImg.appendChild(img);
-    cardContainer.appendChild(cardImg); //appended
-    
-    // Name div
-    var cardName = document.createElement('DIV');
-    cardName.className = 'card-name';
-    cardName.innerHTML = data.name;
-    cardContainer.appendChild(cardName);    //appemded
-
-    // Buttons
-    var cardBtns = document.createElement('DIV');
-    cardBtns.className = 'card-btns';
-    var detailsBtn = document.createElement('BUTTON');
-    detailsBtn.innerHTML = 'Details';
-    var addFavBtn = document.createElement('BUTTON');
-    addFavBtn.innerHTML = 'Add Fav';
-    cardBtns.appendChild(detailsBtn);
-    cardBtns.appendChild(addFavBtn);
-    cardContainer.appendChild(cardBtns);    //appended
-
+    cardContainer.innerHTML = `
+        <div class="card-img-container">
+            <img src="${data.image.url}">
+        </div>
+        <div class="card-name">"${data.name}"</div>
+        <div class="card-btns">
+            <button id="details_btn">Details</button>
+            <button id="add_fav_btn">Add Fav</button>
+        </div>
+    `
     return cardContainer;
 }
 
