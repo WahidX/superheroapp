@@ -27,6 +27,11 @@ header *{
     padding-left: 20px;
 }
 
+.app-name a{
+    text-decoration: none;
+    color: red;
+}
+
 header input{
     height: 35px;
     width: 100%;

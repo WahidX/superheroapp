@@ -5,18 +5,97 @@
         <link rel="stylesheet" href="../styles/details.css">
         
         <title>Details Page</title>
-    <head>
+    </head>
 
     <body>
         <header>
-            <div class="app-name center">SuperHeroApp</div>
+            <div class="app-name center"><a href='index.html'>SuperHeroApp</a></div>
             
             <div class="favourite-router center">
                 <button><a href="favourites.html">FAVOURITES</a></button>
             </div>
         </header>
 
-        <div></div>
+        <div id="main-container">
+            <!-- A navigation bar -->
+            <div id="top-bar">
+                <div><a href="#powerstats">Powerstats</a></div>
+                <div><a href="#appearance-target">Appearance</a></div>
+                <div><a href="#biography-target">Biography</a></div>
+                <div><a href="#occupation-target">Occupation</a></div>
+                <div><a href="#connections-target">Connections</a></div>
+            </div>
+            
+            <!-- Hero data will be appended here -->
+            <div id='data-container'>
+
+                <div id="image">
+                    <img width="400" height="400">
+                </div>
+
+                <div id="detail-container">
+                    <div class="detail-item">
+
+                        <span class="anchor" id="powerstats"></span>
+                        <h1 id="powerstats">Powerstats</h1>
+                        
+                        <div id="stats-container">
+                            <div id="stat-names">
+                                <span>Combat</span>
+                                <span>Durability</span>
+                                <span>Intelligence</span>
+                                <span>Power</span>
+                                <span>Speed</span>
+                                <span>Strength</span>
+                            </div>
+
+                            <div id="stat-bars">
+                                <div class="bar-container">
+                                    <div class="bar combat" style="width: 0%;">0</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar durability" style="width: 0%;">0</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar intelligence" style="width: 0%;">0</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar power" style="width: 0%;">0</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar speed" style="width: 0%;">0</div>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar strength" style="width: 0%;">0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="detail-item">
+                        <span class="anchor" id="appearance-target"></span>
+                        <h1>Appearance</h1>
+                        <section id="appearance">...</section>
+                    </div>
+                    <div class="detail-item">
+                        <span class="anchor" id="biography-target"></span>
+                        <h1>Biography</h1>
+                        <section id="biography">...</section>
+                    </div>
+                    <div class="detail-item">
+                        <span class="anchor" id="occupation-target"></span>
+                        <h1>Occupation</h1>
+                        <section id="occupation">...</section>
+                    </div>
+                    <div class="detail-item">
+                        <span class="anchor" id="connections-target"></span>
+                        <h1>Connections</h1>
+                        <section id="connections">...</section>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
 
         <script type="text/javascript" src="../scripts/details.js"></script>

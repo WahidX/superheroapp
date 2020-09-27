@@ -28,7 +28,6 @@ document.addEventListener('click', (event) => {
         var id = event.target.parentNode.parentNode;
         console.log(id+' will be fav');
     }
-
 });
 
 

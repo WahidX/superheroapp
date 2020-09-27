@@ -27,6 +27,11 @@ header *{
     padding-left: 20px;
 }
 
+.app-name a{
+    text-decoration: none;
+    color: red;
+}
+
 header button{
     margin-right: 20px;
 }
@@ -40,3 +45,106 @@ header button a{
     justify-content: center;
     align-items: center;
 }
+
+#main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 1vh;
+}
+
+#top-bar{
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rosybrown;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    z-index: 10;
+}
+
+#top-bar *{
+    top: 72px;
+    padding: 20px;
+}
+
+.anchor{
+    display: block;
+    height: 200px; /*same height as header*/
+    margin-top: -200px; /*same height as header*/
+    visibility: hidden;
+}
+
+#data-container{
+    position: relative;
+    margin-top: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+#image{
+    width: 25%;
+    margin-left: 30px;
+    padding: 100px;
+}
+
+#detail-container{
+    position: relative;
+    width: 70%;
+}
+
+.detail-item{
+    padding: 20px;
+    width: 80%;
+}
+
+#stats-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+}
+
+#stat-names{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding-right: 20px;
+}
+
+#stat-names span{
+    display: block;
+    padding: 15px;
+    font-weight: bold;
+}
+
+#stat-bars{
+    width: 80%;
+}
+
+.bar-container{
+    background-color: rgba(0, 0, 0, 0);
+    width: 60%;
+    padding: 5px;
+}
+
+.bar{
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px;
+    transition-duration: 600ms;
+}
+
+
+
+
+
+
