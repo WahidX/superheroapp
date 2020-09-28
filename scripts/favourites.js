@@ -1,7 +1,7 @@
 const access_token = '338148107599656';
 const api_url = "https://www.superheroapi.com/api.php/"+access_token+"/";
-const favTrue = 'https://www.flaticon.com/svg/static/icons/svg/1828/1828884.svg';
-const favFalse = 'https://www.flaticon.com/svg/static/icons/svg/2919/2919643.svg';
+const favFalse = '../assets/images/white_star.png';
+const favTrue = '../assets/images/red_star.png';
 
 driver();
 
