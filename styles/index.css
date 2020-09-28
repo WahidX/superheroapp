@@ -1,3 +1,12 @@
+@font-face{
+    font-family: xolonium;
+    src: url(../assets/fonts/Xolonium-Regular.ttf);
+}
+
+*{
+    font-family: Xolonium;
+}
+
 body{
     position: relative;
     width: 100%;
@@ -80,8 +89,8 @@ header button a{
 .card-container{
     display: flex;
     flex-direction: column;
-    width: 200px;
-    height: 260px;
+    width: 220px;
+    height: 280px;
     border: 2px solid rgb(255, 50, 50);
     border-radius: 15px;
     box-shadow: 0px 0px 15px 0px #00417e;

@@ -1,0 +1,129 @@
+@font-face{
+    font-family: xolonium;
+    src: url(../assets/fonts/Xolonium-Regular.ttf);
+}
+
+*{
+    font-family: Xolonium;
+}
+
+body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 80px;
+    margin: auto;
+    background-color: rgb(65, 65, 65);
+    color: white;
+    display: inline-flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 15px 0px #00417e;
+    z-index: 99;
+}
+
+header *{
+    font-size: 1.1rem;
+}
+
+.app-name{
+    padding-left: 20px;
+}
+
+.app-name a{
+    text-decoration: none;
+    color: red;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Main result body */
+#result-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(172, 172, 172);
+    top: 80px;
+}
+
+#results{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 30px;
+}
+
+/* Cards */
+.card-container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 450px;
+    border: 2px solid rgb(255, 50, 50);
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 0px #00417e;
+}
+
+.card-img-container img{
+    height: 180px;
+    width: 180px;
+    border-radius: 15px;
+}
+
+.card-name{
+    padding: 5px;
+}
+
+/* Stats */
+#stats-container{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+}
+
+#stat-names{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding-right: 10px;
+}
+
+#stat-names span{
+    display: block;
+    padding: 5px;
+    padding-left: 15px;
+}
+
+#stat-bars{
+    width: 80%;
+    font-size: .9rem;
+}
+
+.bar-container{
+    background-color: rgba(0, 0, 0, 0);
+    width: 80%;
+    padding: 2px;
+    margin-top: 3px;
+}
+
+.bar{
+    background-color: red;
+    border-radius: 10px;
+    padding: 2px;
+    padding-left: 10px;
+    transition-duration: 600ms;
+}

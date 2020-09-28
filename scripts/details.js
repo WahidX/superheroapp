@@ -1,5 +1,8 @@
 const access_token = "338148107599656";
 const api_url = "https://www.superheroapi.com/api.php/"+access_token+"/";
+const favTrue = 'https://www.flaticon.com/svg/static/icons/svg/1828/1828884.svg';
+const favFalse = 'https://www.flaticon.com/svg/static/icons/svg/2919/2919643.svg';
+
 
 driver();
 
@@ -9,6 +12,28 @@ async function driver(){
     console.log(data);
     renderPage(data);
 }
+
+// Handling the click events
+document.addEventListener('click', (event) => {
+    // Fav button
+    if(event.target.id == 'fav_btn'){
+        var id = event.target.parentNode.parentNode.name;
+        var favs = JSON.parse(localStorage.getItem('superheroFavs'));
+        if (favs.indexOf(id) != -1){
+            favs = favs.filter((item) => item!=id);
+            localStorage.setItem('superheroFavs',JSON.stringify(favs));
+            event.target.src = favFalse;
+            alert('Removed from fav');
+        }
+        else{
+            favs.push(id);
+            localStorage.setItem('superheroFavs',JSON.stringify(favs));
+            event.target.src = favTrue;
+            alert('Added to fav');
+        }
+    }
+});
+
 
 
 function extractId(){
@@ -32,9 +57,19 @@ async function getInfo(id){
 
 
 function renderPage(data){
-    
-    // Setting image
-    document.getElementById('image').firstElementChild.src = `${data.image.url}`;
+    document.getElementById('data-container').name = data.id;
+
+    // Setting image and fav button
+    var image = document.getElementById('image');
+    image.firstElementChild.src = `${data.image.url}`;
+    var favs = JSON.parse(localStorage.getItem('superheroFavs'));
+    if(favs.indexOf(data.id) != -1){
+        image.lastElementChild.src = favTrue;
+    }
+    else{
+        image.lastElementChild.src = favFalse;
+    }
+
 
     // Powerstats
     var combat = document.getElementsByClassName('combat');
@@ -63,11 +98,11 @@ function renderPage(data){
 
     // Appearance
     document.getElementById('appearance').innerHTML = makePresentable(data.appearance);
-
+    // Biography
     document.getElementById('biography').innerHTML = makePresentable(data.biography);
-
+    // Occupation
     document.getElementById('occupation').innerHTML = makePresentable(data.work);
-
+    // Connections
     document.getElementById('connections').innerHTML = makePresentable(data.connections);
 
 }

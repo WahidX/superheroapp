@@ -1,10 +1,13 @@
 console.log('script loaded');
 const access_token = '338148107599656';
 const url = 'https://superheroapi.com/api.php/'+access_token+'/search/';
-
+const favTrue = 'https://www.flaticon.com/svg/static/icons/svg/1828/1828884.svg';
+const favFalse = 'https://www.flaticon.com/svg/static/icons/svg/2919/2919643.svg';
+checkLocalStorage();
 
 // Driver Code
 const searchBar = document.getElementById('search-data');
+
 searchBar.addEventListener('keyup', (e)=> {
     const searchString = e.target.value;
     console.log("Searching for: ",searchString);
@@ -16,17 +19,36 @@ searchBar.addEventListener('keyup', (e)=> {
     }
 });
 
+// Initialize localStorage entry
+function checkLocalStorage(){
+    if (localStorage.getItem('superheroFavs')==null){
+        localStorage.setItem('superheroFavs', JSON.stringify(Array()));
+    }
+}
 
+// Handling details, add favourite actions
 document.addEventListener('click', (event) => {
     // Details button
     if(event.target.id == 'details_btn'){
-        var id = event.target.parentNode.parentNode.id;
-        window.open('./details.html'+'?id='+id);
+        var id = event.target.parentNode.id;
+        window.open('./details.html'+'?id='+id, "_self");
     }
     // Favourite button
-    else if(event.target.id == 'details_btn'){
-        var id = event.target.parentNode.parentNode;
-        console.log(id+' will be fav');
+    else if(event.target.id == 'add_fav_btn'){
+        var id = event.target.parentNode.parentNode.id;
+        var favs = JSON.parse(localStorage.getItem('superheroFavs'));
+        if (favs.indexOf(id) != -1){
+            favs = favs.filter((item) => item!=id);
+            localStorage.setItem('superheroFavs',JSON.stringify(favs));
+            event.target.src = favFalse;
+            alert('Removed from fav');
+        }
+        else{
+            favs.push(id);
+            localStorage.setItem('superheroFavs',JSON.stringify(favs));
+            event.target.src = favTrue;
+            alert('Added to fav');
+        }
     }
 });
 
@@ -73,15 +95,21 @@ function getCard(data){
     var cardContainer = document.createElement('DIV');
     cardContainer.className = 'card-container center';
     cardContainer.id = data.id;
-    
+    var srcFav;
+    var favs = JSON.parse(localStorage.getItem('superheroFavs'));
+    if(favs.indexOf(data.id) !== -1){
+        srcFav = favTrue;
+    }
+    else{
+        srcFav = favFalse;
+    }
     cardContainer.innerHTML = `
         <div class="card-img-container">
             <img src="${data.image.url}">
         </div>
-        <div class="card-name">"${data.name}"</div>
+        <div id="details_btn" class="card-name">${data.name}</div>
         <div class="card-btns">
-            <button id="details_btn">Details</button>
-            <button id="add_fav_btn">Add Fav</button>
+            <img id="add_fav_btn" src="${srcFav}" width="25">
         </div>
     `
     return cardContainer;
