@@ -22,13 +22,13 @@ document.addEventListener('click', (event) => {
             favs = favs.filter((item) => item!=id);
             localStorage.setItem('superheroFavs',JSON.stringify(favs));
             event.target.src = favFalse;
-            alert('Removed from fav');
+            customAlert('failure','Removed from fav');
         }
         else{
             favs.push(id);
             localStorage.setItem('superheroFavs',JSON.stringify(favs));
             event.target.src = favTrue;
-            alert('Added to fav');
+            customAlert('success','Added to fav');
         }
     }
 });

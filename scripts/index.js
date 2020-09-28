@@ -1,8 +1,9 @@
 console.log('script loaded');
 const access_token = '338148107599656';
 const url = 'https://superheroapi.com/api.php/'+access_token+'/search/';
-const favTrue = 'https://www.flaticon.com/svg/static/icons/svg/1828/1828884.svg';
-const favFalse = 'https://www.flaticon.com/svg/static/icons/svg/2919/2919643.svg';
+const favFalse = '../assets/images/white_star.png';
+const favTrue = '../assets/images/red_star.png';
+
 checkLocalStorage();
 
 // Driver Code
@@ -41,13 +42,13 @@ document.addEventListener('click', (event) => {
             favs = favs.filter((item) => item!=id);
             localStorage.setItem('superheroFavs',JSON.stringify(favs));
             event.target.src = favFalse;
-            alert('Removed from fav');
+            customAlert('failure','Removed from fav');
         }
         else{
             favs.push(id);
             localStorage.setItem('superheroFavs',JSON.stringify(favs));
             event.target.src = favTrue;
-            alert('Added to fav');
+            customAlert('success','Added to fav');
         }
     }
 });
@@ -115,3 +116,12 @@ function getCard(data){
     return cardContainer;
 }
 
+
+function customAlert(type, message){
+    var element = document.getElementsByClassName(type);
+    element[0].innerHTML = message;
+    element[0].style.visibility = "visible"
+    setTimeout(() => {
+        element[0].style.visibility = "hidden";
+    }, 1500);
+}

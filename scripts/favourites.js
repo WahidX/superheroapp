@@ -35,13 +35,13 @@ document.addEventListener('click', (event) => {
             localStorage.setItem('superheroFavs',JSON.stringify(favs));
             event.target.src = favFalse;
             document.getElementById(id).remove();
-            alert('Removed from fav');
+            customAlert('failure','Removed from fav');
         }
         else{
             favs.push(id);
             localStorage.setItem('superheroFavs',JSON.stringify(favs));
             event.target.src = favTrue;
-            alert('Added to fav');
+            customAlert('success','Added to fav');
         }
     }
 });
@@ -115,4 +115,14 @@ async function searchHero(id){
     else {
         alert("HTTP-Error: " + response.status);
     }
+}
+
+
+function customAlert(type, message){
+    var element = document.getElementsByClassName(type);
+    element[0].innerHTML = message;
+    element[0].style.visibility = "visible"
+    setTimeout(() => {
+        element[0].style.visibility = "hidden";
+    }, 1500);
 }

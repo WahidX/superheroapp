@@ -9,6 +9,29 @@
     background-color: black;
 }
 
+#alert{
+    position: absolute;
+    top: 30px;
+    border-radius: 10px;
+    z-index: 99;
+    width: max-content;
+    text-align: center;
+    padding: 5px;
+    float: right;
+    right: 250px;
+    transition-duration: 800ms;
+}
+
+.success{
+    color: black;
+    background-color: red;
+}
+
+.failure{
+    color: black;
+    background-color: yellow;
+}
+
 body, html{
     margin: 0;
 }
