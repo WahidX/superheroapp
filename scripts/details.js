@@ -9,7 +9,6 @@ driver();
 async function driver(){
     const id = extractId();
     const data = await getInfo(id);
-    console.log(data);
     renderPage(data);
 }
 
@@ -106,7 +105,6 @@ function renderPage(data){
     document.getElementById('occupation').innerHTML = makePresentable(data.work);
     // Connections
     document.getElementById('connections').innerHTML = makePresentable(data.connections);
-
 }
 
 // Converting JSON objects to paragraph

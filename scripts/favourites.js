@@ -7,8 +7,8 @@ const favTrue = '../assets/images/red_star.png';
 driver();
 
 function driver(){
+    // Getting the fav list from localStorage
     var favs = JSON.parse(localStorage.getItem('superheroFavs'));
-    
     if(favs.length==0){
         document.getElementById('results').innerHTML = "Add your favourite Heroes";
         return;
@@ -45,6 +45,18 @@ document.addEventListener('click', (event) => {
         }
     }
 });
+
+// Function to call API
+async function searchHero(id){
+    // Calling API
+    let response = await fetch(api_url+id);
+    if (response.ok) { // if HTTP-status is 200-299
+        renderCard(await response.json());
+    }
+    else {
+        alert("HTTP-Error: " + response.status);
+    }
+}
 
 
 // Form the card DOM
@@ -103,20 +115,9 @@ function renderCard(data){
         </div>
     `
     document.getElementById('results').appendChild(cardContainer);
-
 }
 
-// Function to call API
-async function searchHero(id){
-    // Calling API
-    let response = await fetch(api_url+id);
-    if (response.ok) { // if HTTP-status is 200-299
-        renderCard(await response.json());
-    }
-    else {
-        alert("HTTP-Error: " + response.status);
-    }
-}
+
 
 // For changing visibility of alert box
 function customAlert(type, message){
