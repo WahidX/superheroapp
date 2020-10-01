@@ -114,3 +114,12 @@ function makePresentable(jsonData){
     }
     return str;
 }
+
+function customAlert(type, message){
+    var element = document.getElementsByClassName(type);
+    element[0].innerHTML = message;
+    element[0].style.visibility = "visible"
+    setTimeout(() => {
+        element[0].style.visibility = "hidden";
+    }, 1500);
+}
