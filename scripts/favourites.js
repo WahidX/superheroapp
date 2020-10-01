@@ -1,3 +1,4 @@
+// Commonly used values
 const access_token = '338148107599656';
 const api_url = "https://www.superheroapi.com/api.php/"+access_token+"/";
 const favFalse = '../assets/images/white_star.png';
@@ -7,14 +8,13 @@ driver();
 
 function driver(){
     var favs = JSON.parse(localStorage.getItem('superheroFavs'));
-    console.log(favs);
+    
     if(favs.length==0){
         document.getElementById('results').innerHTML = "Add your favourite Heroes";
         return;
     }
     document.getElementById('results').innerHTML = '';
     favs.forEach((id) => {
-        console.log('Sending: '+id);
         searchHero(id);
     });
 }
@@ -47,14 +47,14 @@ document.addEventListener('click', (event) => {
 });
 
 
-
+// Form the card DOM
 function renderCard(data){
-    
     var cardContainer = document.createElement('DIV');
     cardContainer.className = 'card-container center';
     cardContainer.id = data.id;
     var srcFav;
     var favs = JSON.parse(localStorage.getItem('superheroFavs'));
+    // Cheking if its a fav or not
     if(favs.indexOf(data.id) !== -1){
         srcFav = favTrue;
     }
@@ -106,6 +106,7 @@ function renderCard(data){
 
 }
 
+// Function to call API
 async function searchHero(id){
     // Calling API
     let response = await fetch(api_url+id);
@@ -117,7 +118,7 @@ async function searchHero(id){
     }
 }
 
-
+// For changing visibility of alert box
 function customAlert(type, message){
     var element = document.getElementsByClassName(type);
     element[0].innerHTML = message;

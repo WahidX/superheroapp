@@ -1,3 +1,4 @@
+// Commonly used values
 const access_token = "338148107599656";
 const api_url = "https://www.superheroapi.com/api.php/"+access_token+"/";
 const favFalse = '../assets/images/white_star.png';
@@ -18,13 +19,13 @@ document.addEventListener('click', (event) => {
     if(event.target.id == 'fav_btn'){
         var id = event.target.parentNode.parentNode.name;
         var favs = JSON.parse(localStorage.getItem('superheroFavs'));
-        if (favs.indexOf(id) != -1){
+        if (favs.indexOf(id) != -1){            // Remove from fav
             favs = favs.filter((item) => item!=id);
             localStorage.setItem('superheroFavs',JSON.stringify(favs));
             event.target.src = favFalse;
             customAlert('failure','Removed from fav');
         }
-        else{
+        else{                                   // Add to fav
             favs.push(id);
             localStorage.setItem('superheroFavs',JSON.stringify(favs));
             event.target.src = favTrue;
@@ -35,13 +36,13 @@ document.addEventListener('click', (event) => {
 
 
 
+//Extracting ID from url
 function extractId(){
-    //Extracting ID from url
     const url = location.search;
     return url.substring(url.indexOf('=')+1);
 }
 
-
+// Function to call the API
 async function getInfo(id){
     let response = await fetch(api_url+id);
     if(response.ok){
@@ -58,9 +59,11 @@ async function getInfo(id){
 function renderPage(data){
     document.getElementById('data-container').name = data.id;
 
-    // Setting image and fav button
+    // Setting image of the hero
     var image = document.getElementById('image');
     image.firstElementChild.src = `${data.image.url}`;
+    
+    // Setting the fav icon
     var favs = JSON.parse(localStorage.getItem('superheroFavs'));
     if(favs.indexOf(data.id) != -1){
         image.lastElementChild.src = favTrue;
@@ -106,6 +109,7 @@ function renderPage(data){
 
 }
 
+// Converting JSON objects to paragraph
 function makePresentable(jsonData){
     var str='';
     for (var key in jsonData){
@@ -115,6 +119,7 @@ function makePresentable(jsonData){
     return str;
 }
 
+// For changing visibility of alert box
 function customAlert(type, message){
     var element = document.getElementsByClassName(type);
     element[0].innerHTML = message;
