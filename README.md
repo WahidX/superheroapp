@@ -24,4 +24,4 @@ Made this for practicing some basic vanilla JS concepts.
 The page is hosted in here: [SuperHeroApp](https://wahidx.github.io/superheroapp/pages/index.html)
 
 # Video Demonstration
-[![Youtube](https://www.youtube.com/watch?v=YNJHumhthR8&t)]
+[Youtube](https://youtu.be/YNJHumhthR8)
